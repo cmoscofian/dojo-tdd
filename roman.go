@@ -1,14 +1,14 @@
 package main
 
 type converter struct {
-	Remaining int
-	Roman     string
+	remaining int
+	pattern   string
 }
 
 func ConvertToRoman(num int) string {
 	c := &converter{
-		Remaining: num,
-		Roman:     "",
+		remaining: num,
+		pattern:   "",
 	}
 
 	buildPattern(1000, "M", c)
@@ -25,12 +25,12 @@ func ConvertToRoman(num int) string {
 	buildPattern(4, "IV", c)
 	buildPattern(1, "I", c)
 
-	return c.Roman
+	return c.pattern
 }
 
 func buildPattern(num int, pattern string, c *converter) {
-	for c.Remaining >= num {
-		c.Roman += pattern
-		c.Remaining -= num
+	for c.remaining >= num {
+		c.pattern += pattern
+		c.remaining -= num
 	}
 }

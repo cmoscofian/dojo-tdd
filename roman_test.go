@@ -3,10 +3,6 @@ package main
 import "testing"
 
 func TestConvertToRoman(t *testing.T) {
-	type args struct {
-		num int
-	}
-
 	tests := []struct {
 		args int
 		want string
